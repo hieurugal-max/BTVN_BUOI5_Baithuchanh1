@@ -1,65 +1,118 @@
-# Kế Hoạch Tài Chính Cá Nhân Hàng Tháng
+# BÀI THỰC HÀNH 1: LẬP KẾ HOẠCH TÀI CHÍNH CÁ NHÂN BẰNG CHAIN-OF-THOUGHT
 
+## 1. Prompt Chain-of-Thought
 
+**Vai trò:** Bạn là chuyên gia tư vấn tài chính cá nhân, có nhiệm vụ lập kế hoạch quản lý thu nhập và chi tiêu hàng tháng.
 
-## 1\. Dữ Liệu Đầu Vào
+**Nhiệm vụ:** Phân tích dữ liệu tài chính, tính toán ngân sách và đưa ra phương án phân bổ tiền hợp lý.
 
-|Chỉ tiêu|Số tiền / Tỷ lệ|
-|-|-|
-|**Tổng thu nhập (Gross Income)**|25.000.000 VNĐ|
-|**Thuế thu nhập cá nhân**|2.500.000 VNĐ|
-|**Chi phí cố định bắt buộc**|7.000.000 VNĐ|
-|**Các khoản nợ cần trả tối thiểu**|4.000.000 VNĐ|
-|**Mục tiêu tiết kiệm cam kết**|Tối thiểu 20% trên thu nhập ròng|
+**Dữ liệu đầu vào:**
+- Tổng thu nhập (Gross Income): 25.000.000 VNĐ.
+- Thuế thu nhập cá nhân: 2.500.000 VNĐ.
+- Chi phí cố định bắt buộc: 7.000.000 VNĐ.
+- Các khoản nợ cần trả tối thiểu: 4.000.000 VNĐ.
+- Mục tiêu tiết kiệm: Tối thiểu 20% thu nhập ròng.
 
-\---
+**Chỉ thị Chain-of-Thought:**
 
-## 2\. Nhật Ký Suy Luận Logic (Reasoning Steps)
+Hãy suy nghĩ từng bước một và tính toán chi tiết trước khi đưa ra quyết định. Không bỏ qua các phép tính trung gian và phải kiểm tra tính chính xác của số liệu trước khi lập bảng ngân sách cuối cùng.
 
-### Bước 1: Tính toán thu nhập ròng và số dư sau chi phí cố định
+**Quy trình thực hiện:**
 
-* **Thu nhập ròng (Net Income):** Là số tiền thực tế nhận được sau khi khấu trừ nghĩa vụ thuế.
+1. Bước 1: Tính thu nhập ròng sau khi trừ thuế và số tiền còn lại sau chi phí cố định.
+2. Bước 2: Trừ khoản nợ tối thiểu cần thanh toán.
+3. Bước 3: Trích lập khoản tiết kiệm tối thiểu 20% thu nhập ròng.
+4. Bước 4: Chia số tiền còn lại theo quy tắc 50/30/20 cải tiến:
+   - 50% cho nhu cầu thiết yếu phát sinh.
+   - 30% cho nhu cầu cá nhân và giải trí.
+   - 20% cho quỹ dự phòng.
 
-Thu nhập ròng = 25.000.000 - 2.500.000 = 22.500.000 VNĐ
-* **Số dư sau chi phí cố định bắt buộc:** Khấu trừ các khoản chi phí sinh hoạt thiết yếu hàng tháng (tiền nhà, điện, nước, internet, bảo hiểm...).
+**Yêu cầu đầu ra:**
+- Phần 1: Trình bày các bước tính toán, công thức và số liệu trung gian.
+- Phần 2: Lập bảng ngân sách bằng Markdown Table gồm Hạng mục, Số tiền, Tỷ lệ %, Ghi chú.
+- Tổng tỷ lệ phân bổ phải bằng chính xác 100%.
+- Không sử dụng Pydantic hoặc Python. Thực hiện hoàn toàn bằng Prompting logic.
 
-Số dư Bước 1 = 22.500.000 - 7.000.000 = 15.500.000 VNĐ
+---
+
+## 2. Nhật ký suy luận logic (Reasoning Steps)
+
+### Bước 1: Tính thu nhập ròng và số dư sau chi phí cố định
+
+Thu nhập ròng sau thuế:
+
+25.000.000 - 2.500.000 = 22.500.000 VNĐ.
+
+Số tiền còn lại sau khi trừ chi phí cố định:
+
+22.500.000 - 7.000.000 = 15.500.000 VNĐ.
 
 ### Bước 2: Phân bổ khoản tiền trả nợ tối thiểu
 
-* Trích từ số dư ở Bước 1 để thanh toán các nghĩa vụ nợ tối thiểu nhằm duy trì điểm tín dụng tốt và tránh phát sinh lãi phạt.
-Số dư Bước 2 = 15.500.000 - 4.000.000 = 11.500.000 VNĐ
+Trừ khoản nợ cần thanh toán hàng tháng:
+
+15.500.000 - 4.000.000 = 11.500.000 VNĐ.
+
+Khoản nợ này cần được ưu tiên thanh toán đúng hạn để tránh phát sinh phí phạt và lãi quá hạn.
 
 ### Bước 3: Trích lập quỹ tiết kiệm cam kết
 
-* Thực hiện nguyên tắc "Trả cho mình trước" bằng cách trích 20% trên **thu nhập ròng** (22.500.000 VNĐ).
-Số tiền tiết kiệm = 22.500.000  x 20% = 4.500.000 VNĐ
-* Số dư còn lại sau khi hoàn tất nghĩa vụ tiết kiệm:
-Số dư Bước 3 = 11.500.000 - 4.500.000 = 7.000.000 VNĐ
+Mục tiêu tiết kiệm tối thiểu 20% thu nhập ròng:
 
-### Bước 4: Phân bổ chi tiêu linh hoạt theo quy tắc 50/30/20 cải tiến
+22.500.000 × 20% = 4.500.000 VNĐ.
 
-* Toàn bộ phần ngân sách còn lại (7.000.000 VNĐ) được dành cho các hoạt động **chi tiêu linh hoạt** (ăn uống ngoài, giải trí, mua sắm cá nhân, chăm sóc bản thân và quỹ dự phòng phát sinh nhỏ).
-* **Đánh giá tỷ trọng:** Khoản chi tiêu linh hoạt chiếm {7.000.000}{25.000.000} = 28% tổng thu nhập, nằm trong ngưỡng an toàn (dưới 30%) giúp đảm bảo chất lượng cuộc sống mà không ảnh hưởng đến mục tiêu tích lũy.
+Số tiền còn lại sau khi tiết kiệm:
 
-\---
+11.500.000 - 4.500.000 = 7.000.000 VNĐ.
 
-## 3\. Bảng Phân Bổ Ngân Sách Cuối Cùng
+### Bước 4: Phân bổ chi tiêu theo quy tắc 50/30/20 cải tiến
 
-|Hạng mục|Số tiền (VNĐ)|Tỷ lệ % (Tổng thu nhập)|Ghi chú|
-|-|-|-|-|
-|**1. Thuế \& Nghĩa vụ nhà nước**|2.500.000|10,0%|Khấu trừ trực tiếp từ thu nhập gốc|
-|**2. Chi phí cố định bắt buộc**|7.000.000|28,0%|Nhà ở, điện, nước, viễn thông, thiết yếu|
-|**3. Trả nợ tối thiểu**|4.000.000|16,0%|Duy trì lịch sử tín dụng an toàn|
-|**4. Tiết kiệm \& Đầu tư cam kết**|4.500.000|18,0%|Đạt chuẩn 20% tính trên thu nhập ròng (22,5 M)|
-|**5. Chi tiêu linh hoạt**|7.000.000|28,0%|Ăn uống, giải trí, mua sắm cá nhân|
-|**TỔNG CỘNG**|**25.000.000**|**100,0%**|**Ngân sách cân đối hoàn hảo VNĐ thâm hụt)**|
+Số tiền còn lại là 7.000.000 VNĐ. Tiếp tục chia thành ba nhóm để tránh tập trung toàn bộ tiền vào chi tiêu linh hoạt.
 
-\---
+**1. Nhu cầu thiết yếu phát sinh (50%):**
 
-## 4\. Khuyến Nghị Quản Lý Thực Tế
+7.000.000 × 50% = 3.500.000 VNĐ.
 
-1. **Tự động hóa dòng tiền:** Ngay khi nhận lương, hãy thiết lập lệnh chuyển khoản tự động 4.500.000 VNĐ sang tài khoản tiết kiệm/đầu tư riêng biệt để tránh chi tiêu lạm vào quỹ này.
-2. **Tách biệt tài khoản chi tiêu:** Nên giữ 7.000.000 VNĐ chi tiêu linh hoạt ở một tài khoản thanh toán riêng (hoặc chia thành ngân sách tuần khoảng 1.750.000 VNĐ/tuần) để dễ dàng kiểm soát.
-3. **Tối ưu hóa nợ:** Nếu có khoản thưởng hoặc thu nhập phụ ngoài lương, hãy ưu tiên dùng một phần để trả thêm vào gốc của các khoản nợ có lãi suất cao nhất.
+Dùng cho ăn uống, đi lại, vật dụng cá nhân và các nhu cầu thiết yếu phát sinh.
+
+**2. Nhu cầu cá nhân và giải trí (30%):**
+
+7.000.000 × 30% = 2.100.000 VNĐ.
+
+Dùng cho mua sắm cá nhân, giải trí và các hoạt động ngoài nhu cầu thiết yếu.
+
+**3. Quỹ dự phòng (20%):**
+
+7.000.000 × 20% = 1.400.000 VNĐ.
+
+Dành cho những khoản chi bất ngờ hoặc phát sinh ngoài kế hoạch.
+
+Kiểm tra tổng số tiền:
+
+3.500.000 + 2.100.000 + 1.400.000 = 7.000.000 VNĐ.
+
+Như vậy, số tiền được phân bổ đầy đủ, không vượt quá ngân sách còn lại.
+
+---
+
+## 3. Bảng phân bổ ngân sách cuối cùng
+
+| Hạng mục | Số tiền (VNĐ) | Tỷ lệ % | Ghi chú |
+|---|---:|---:|---|
+| Thuế thu nhập cá nhân | 2.500.000 | 10% | Nghĩa vụ thuế |
+| Chi phí cố định | 7.000.000 | 28% | Nhà ở, điện, nước, internet |
+| Trả nợ tối thiểu | 4.000.000 | 16% | Thanh toán nợ đúng hạn |
+| Tiết kiệm cam kết | 4.500.000 | 18% | 20% thu nhập ròng |
+| Nhu cầu thiết yếu phát sinh | 3.500.000 | 14% | Ăn uống, đi lại |
+| Cá nhân và giải trí | 2.100.000 | 8,4% | Mua sắm, giải trí |
+| Quỹ dự phòng | 1.400.000 | 5,6% | Chi phí phát sinh bất ngờ |
+| **TỔNG CỘNG** | **25.000.000** | **100%** | **Ngân sách cân đối** |
+
+## 4. Kiểm tra và đánh giá kết quả
+
+- Thu nhập sau thuế: 22.500.000 VNĐ.
+- Tiết kiệm cam kết: 4.500.000 VNĐ, đạt đúng 20% thu nhập ròng.
+- Các khoản nợ tối thiểu được thanh toán đầy đủ.
+- Quỹ dự phòng được trích riêng 1.400.000 VNĐ.
+- Tổng ngân sách phân bổ: 25.000.000 VNĐ, tương ứng 100% thu nhập ban đầu.
 
